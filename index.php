@@ -4,16 +4,10 @@ $lenght = (int) $_GET["lenght"];
 $hasFilters = isset($lenght);
 // var_dump($hasFilters);
 // var_dump($lenght);
+include_once "../php-strong-password-generator/utulities.php";
 
 
- $lowercaseLetters="abcdefghijklmnopqrstuvwxyz";
- $uppercaseLetters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
- $numbers="1234567890";
- $symbols= "!#$%&'()*+,-.:;<=>?@[\]^_{|}";
- $comb = $lowercaseLetters . $uppercaseLetters .$numbers.$symbols ;
- $pass = array(); 
- $combLen = strlen($comb) - 1; 
- 
+
 ?>
 
 <!DOCTYPE html>
@@ -55,17 +49,12 @@ $hasFilters = isset($lenght);
             </div>
         </form>
         <div class=" container  bg-white text-black my-cnt mt-4 ">
-            <?php
-            for ($i = 0; $i < $lenght; $i++) {
-                $n = rand(0, $combLen);
-                $pass[] = $comb[$n];
-            }
-            ?>
+
             <strong class="pe-3">PASSWORD:</strong>
-          <em>
-          <?php
-            print(implode($pass)); 
-            ?>
+            <em>
+                <?php
+                echo (implode($pass));
+                ?>
             </em>
         </div>
 </body>
